@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb:  #F7F8FA;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: #EBEEF2;
+}
+
+
+
+body {
+  
+  background-color: var(--background-end-rgb);
+}
+
+
