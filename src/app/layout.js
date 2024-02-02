@@ -6,7 +6,7 @@ const poppins = Poppins({
   display: "swap",
 });
 import "./globals.css";
-
+import StoreProvider from "@/provider/StoreProvider";
 
 export const metadata = {
   title: "Create Next App",
@@ -16,7 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        <StoreProvider>{children}</StoreProvider>
+      </body>
     </html>
   );
 }
