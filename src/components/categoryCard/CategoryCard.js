@@ -9,9 +9,36 @@ import bariImg from "@/assets/categoryLogo/bari.svg";
 import toiletImg from "@/assets/categoryLogo/toilet.svg";
 import azanImg from "@/assets/categoryLogo/azan_ikamot.svg";
 import Image from "next/image";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { useCallback } from "react";
+
 import SubCategory from "../subcategory/SubCategory";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCategory } from "@/redux/slices/apiSlice";
 const CategoryCard = ({ category }) => {
-  const { cat_name_en, no_of_subcat, no_of_dua, cat_icon } = category;
+  const { cat_name_en, no_of_subcat, no_of_dua, cat_icon, id } = category;
+  const { selectedCategory } = useSelector((state) => state.apiFeature);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const dispatch = useDispatch();
+
+  // set query params
+  const createQueryString = useCallback(
+    (name, value) => {
+      const params = new URLSearchParams(searchParams);
+      params.set(name, value);
+
+      return params.toString();
+    },
+    [searchParams]
+  );
+
+  // expand subcategories
+
+  const expandSubCategory = () => {
+    dispatch(selectCategory(id));
+  };
 
   let logo;
   // select logo
@@ -39,8 +66,15 @@ const CategoryCard = ({ category }) => {
     logo = img1;
   }
   return (
-    <div>
-      <div className=" px-2 flex items-center space-x-2 w-full relative cursor-pointer hover:bg-[#E8F0F5] transition-colors duration-150 rounded-xl py-2">
+    <div
+      onClick={() => router.push(pathname + "?" + createQueryString("cat", id))}
+    >
+      <div
+        onClick={expandSubCategory}
+        className={`px-2 flex items-center space-x-2 w-full relative cursor-pointer hover:bg-[#E8F0F5]  transition-all duration-300 rounded-xl py-2 ${
+          selectedCategory == id ? "bg-[#E8F0F5] h-auto" : "h-20"
+        }`}
+      >
         <div>
           <div className="bg-[#F7F8FA] h-14 w-14 flex items-center justify-center rounded-xl">
             <Image src={logo} alt="img" height={40} width={40} />
@@ -57,7 +91,8 @@ const CategoryCard = ({ category }) => {
           <span className="text-xs text-[#BCC1C4]">Duas</span>
         </div>
       </div>
-      {/* <SubCategory /> */}
+      {/*  */}
+      {selectedCategory == id && <SubCategory />}
     </div>
   );
 };
