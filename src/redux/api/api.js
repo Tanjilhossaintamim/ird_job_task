@@ -12,9 +12,15 @@ const api = createApi({
         method: "GET",
       }),
     }),
+    getSubCategories: builder.query({
+      query: (categoryId) => ({
+        url: `/subcategories?cat=${categoryId}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useGetCategoriesQuery } = api;
+export const { useGetCategoriesQuery, useGetSubCategoriesQuery } = api;
 
 export default api;

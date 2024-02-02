@@ -15,8 +15,9 @@ import { useCallback } from "react";
 import SubCategory from "../subcategory/SubCategory";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCategory } from "@/redux/slices/apiSlice";
+import Link from "next/link";
 const CategoryCard = ({ category }) => {
-  const { cat_name_en, no_of_subcat, no_of_dua, cat_icon, id } = category;
+  const { cat_name_en, no_of_subcat, no_of_dua, cat_icon, cat_id } = category;
   const { selectedCategory } = useSelector((state) => state.apiFeature);
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -37,7 +38,7 @@ const CategoryCard = ({ category }) => {
   // expand subcategories
 
   const expandSubCategory = () => {
-    dispatch(selectCategory(id));
+    dispatch(selectCategory(cat_id));
   };
 
   let logo;
@@ -66,33 +67,36 @@ const CategoryCard = ({ category }) => {
     logo = img1;
   }
   return (
-    <div
-      onClick={() => router.push(pathname + "?" + createQueryString("cat", id))}
-    >
-      <div
-        onClick={expandSubCategory}
-        className={`px-2 flex items-center space-x-2 w-full relative cursor-pointer hover:bg-[#E8F0F5]  transition-all duration-300 rounded-xl py-2 ${
-          selectedCategory == id ? "bg-[#E8F0F5] h-auto" : "h-20"
-        }`}
+    <div>
+      <Link
+        href={`?cat=${cat_id}`}
+        // onClick={() => router.push(pathname + "?" + createQueryString("cat", cat_id))}
       >
-        <div>
-          <div className="bg-[#F7F8FA] h-14 w-14 flex items-center justify-center rounded-xl">
-            <Image src={logo} alt="img" height={40} width={40} />
+        <div
+          onClick={expandSubCategory}
+          className={`px-2 flex items-center space-x-2 w-full relative cursor-pointer hover:bg-[#E8F0F5]  transition-all duration-300 rounded-xl py-2 ${
+            selectedCategory == cat_id ? "bg-[#E8F0F5] h-auto" : "h-20"
+          }`}
+        >
+          <div>
+            <div className="bg-[#F7F8FA] h-14 w-14 flex items-center justify-center rounded-xl">
+              <Image src={logo} alt="img" height={40} width={40} />
+            </div>
+          </div>
+          <div className="w-full">
+            <h1 className="font-semibold text-color-text">{cat_name_en}</h1>
+            <span className="text-xs text-[#BCC1C4]">
+              Subcategory: {no_of_subcat}
+            </span>
+          </div>
+          <div className="w-10 text-color-text px-2 border-l flex flex-col flex-wrap items-center justify-center text-xs ">
+            <span className="font-semibold text-sm">{no_of_dua}</span>
+            <span className="text-xs text-[#BCC1C4]">Duas</span>
           </div>
         </div>
-        <div className="w-full">
-          <h1 className="font-semibold text-color-text">{cat_name_en}</h1>
-          <span className="text-xs text-[#BCC1C4]">
-            Subcategory: {no_of_subcat}
-          </span>
-        </div>
-        <div className="w-10 text-color-text px-2 border-l flex flex-col flex-wrap items-center justify-center text-xs ">
-          <span className="font-semibold text-sm">{no_of_dua}</span>
-          <span className="text-xs text-[#BCC1C4]">Duas</span>
-        </div>
-      </div>
+      </Link>
       {/*  */}
-      {selectedCategory == id && <SubCategory />}
+      {selectedCategory == cat_id && <SubCategory />}
     </div>
   );
 };
