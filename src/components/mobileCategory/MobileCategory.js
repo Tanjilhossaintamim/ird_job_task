@@ -1,11 +1,16 @@
+import { useSelector } from "react-redux";
 import CategorySearchBox from "../CategorySearchBox/CategorySearchBox";
 import CategoryTitle from "../CategoryTitle/CategoryTitle";
 import CategoryList from "../categoryList/CategoryList";
 
-
-const CategorySide = () => {
+const MobileCategory = () => {
+  const { navopen } = useSelector((state) => state.navigation);
   return (
-    <div className="lg:w-[450px] h-[84.5vh] bg-white rounded-2xl relative overflow-x-hidden hidden lg:block">
+    <div
+      className={`${
+        navopen ? "w-full left-0" : "w-0 overflow-hidden -left-10"
+      } absolute top-0  z-50 h-screen bg-white lg:rounded-2xl transition-all duration-300 overflow-x-hidden lg:hidden`}
+    >
       <CategoryTitle />
       {/* search box and others */}
       <div className=" py-3 relative w-full">
@@ -17,4 +22,4 @@ const CategorySide = () => {
   );
 };
 
-export default CategorySide;
+export default MobileCategory;

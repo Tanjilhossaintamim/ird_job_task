@@ -22,7 +22,7 @@ const CategoryCard = ({ category }) => {
   // expand subcategories
 
   const expandSubCategory = () => {
-    dispatch(selectCategory(cat_id));
+    dispatch(selectCategory({ cat_id, cat_name: cat_name_en }));
   };
 
   let logo;

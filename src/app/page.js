@@ -10,6 +10,7 @@ import fontSvg from "@/assets/categoryicon/font.svg";
 import SectionTitle from "@/components/sectionTitle/SectionTitle";
 import DoaCardList from "@/components/doaCardList/DoaCardList";
 import styles from "./ScrollBar.module.css";
+import SecondNav from "@/components/SecondNav/SecondNav";
 
 export default function Home() {
   return (
@@ -21,9 +22,12 @@ export default function Home() {
       <div className="bg-color-body w-full ml-4">
         {/* navbar */}
         <Navbar />
+        <SecondNav />
         <div className="flex mt-3 lg:space-x-5 mr-4">
           <CategorySide />
-          <div className={`lg:overflow-auto h-[770px] rounded-b-3xl w-full lg:mr-4 relative ${styles.middle}`}>
+          <div
+            className={`lg:overflow-auto h-[770px] rounded-b-3xl w-full lg:mr-4 relative ${styles.middle}`}
+          >
             <SectionTitle />
             {/* Dua Card */}
             <DoaCardList />
