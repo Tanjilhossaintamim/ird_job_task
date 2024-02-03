@@ -3,12 +3,17 @@ import { useSelector } from "react-redux";
 import DuaCard from "../DuaCard/DuaCard";
 import { useGetDoaQuery } from "@/redux/api/api";
 import CardSkeleton from "../skeleton/cardSkeleton/CardSkeleton";
+import { useEffect } from "react";
 
 const DoaCardList = () => {
   const { selectedCategory } = useSelector((state) => state.apiFeature);
-  const { data: doas, isLoading } = useGetDoaQuery(selectedCategory);
+  const {
+    data: doas,
+    isLoading,
+    isFetching,
+  } = useGetDoaQuery(selectedCategory);
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return (
       <div className="mt-5 flex flex-col">
         <CardSkeleton />

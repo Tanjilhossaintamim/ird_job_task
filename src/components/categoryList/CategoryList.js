@@ -16,6 +16,8 @@ const CategoryList = () => {
         <CategoryCardSkeleton />
         <CategoryCardSkeleton />
         <CategoryCardSkeleton />
+        <CategoryCardSkeleton />
+        
       </>
     );
   }

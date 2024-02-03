@@ -43,7 +43,7 @@ export default function SubCategory({ category, ind }) {
           {selectedSubCategory == subCateGory.id &&
             doas.map((doa) => (
               <Link
-                href={`?cat=${subCateGory.cat_id}&subcat=${subCateGory.id}&dua=${doa.id}`}
+                href={`#dua_${doa.id}`}
                 key={doa.dua_name_en}
                 onClick={() => setDoa(doa.id)}
               >

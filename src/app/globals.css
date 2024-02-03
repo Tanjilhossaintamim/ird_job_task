@@ -8,7 +8,9 @@
   --background-end-rgb: #EBEEF2;
 }
 
-
+* {
+  scroll-behavior: smooth;
+}
 
 body {
 

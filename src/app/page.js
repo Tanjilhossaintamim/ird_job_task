@@ -3,9 +3,10 @@ import LeftSide from "@/components/leftside/LeftSide";
 import Navbar from "@/components/navbar/Navbar";
 import SectionTitle from "@/components/sectionTitle/SectionTitle";
 import DoaCardList from "@/components/doaCardList/DoaCardList";
-import styles from "./ScrollBar.module.css";
+
 import SecondNav from "@/components/SecondNav/SecondNav";
 import RightSide from "@/components/rightSide/RightSide";
+import MiddleSection from "@/components/MiddleSection/MiddleSection";
 
 export default function Home() {
   return (
@@ -20,13 +21,8 @@ export default function Home() {
         <SecondNav />
         <div className="flex mt-3 lg:space-x-5 mr-4">
           <CategorySide />
-          <div
-            className={`lg:overflow-auto h-[770px] rounded-b-3xl w-full lg:mr-4 relative ${styles.middle}`}
-          >
-            <SectionTitle />
-            {/* Dua Card */}
-            <DoaCardList />
-          </div>
+          <MiddleSection/>
+          
         </div>
       </div>
       {/* right side */}
