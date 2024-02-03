@@ -16,14 +16,15 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 1em;
+  width: 10px;
 }
- 
+
 body::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F1F1F1;
 }
- 
+
 body::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
+  background-color: #DDDCDC;
+  border-radius: 4px;
+
 }

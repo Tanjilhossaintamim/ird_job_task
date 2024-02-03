@@ -1,7 +1,7 @@
 import { IoIosSearch } from "react-icons/io";
 const Navbar = () => {
   return (
-    <nav className="sticky top-0 h-16">
+    <nav className="sticky top-0 h-16 hidden lg:block">
       <div className="h-16 flex items-center justify-between px-2">
         <div className="text-2xl  text-[#393939]">Duas Page</div>
         <div className="px-1 bg-white h-[52px] border-[0.5px] border-[#E2E2E2] flex items-center justify-between rounded-lg">

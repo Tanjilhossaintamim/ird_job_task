@@ -47,16 +47,18 @@ export default function SubCategory({ category, ind }) {
                 key={doa.dua_name_en}
                 onClick={() => setDoa(doa.id)}
               >
-                <div>
-                  <div
-                    className={`flex items-center ml-2 gap-2 my-2 cursor-pointer ${
-                      doaNo == doa.id ? "text-color-green" : ""
-                    }`}
-                  >
-                    <Image src={arrowImg} alt={doa.dua_name_en} />
-                    {doa.dua_name_en}
+                {doa.dua_name_en && (
+                  <div>
+                    <div
+                      className={`flex items-center ml-2 gap-2 my-2 cursor-pointer ${
+                        doaNo == doa.id ? "text-color-green" : ""
+                      }`}
+                    >
+                      <Image src={arrowImg} alt={doa.dua_name_en} />
+                      {doa.dua_name_en}
+                    </div>
                   </div>
-                </div>
+                )}
               </Link>
             ))}
         </Fragment>

@@ -7,19 +7,23 @@ import reportsvg from "@/assets/toolicon/report.svg";
 import shareSvg from "@/assets/toolicon/share.svg";
 import Tooltip from "@mui/material/Tooltip";
 
-
-const Footer = () => {
+const Footer = ({ arabic }) => {
   return (
-    <div className="py-7 flex items-center justify-between">
-      <div>
-        <Image
-          src={audioBtnSvg}
-          alt="audiobtn"
-          width={40}
-          height={40}
-          className="cursor-pointer"
-        />
-      </div>
+    <div className="py-7 md:flex items-center justify-between">
+      {arabic ? (
+        <div className="mb-3 md:mb-0">
+          <Image
+            src={audioBtnSvg}
+            alt="audiobtn"
+            width={40}
+            height={40}
+            className="cursor-pointer"
+          />
+        </div>
+      ) : (
+        <div className="w-10 h-10"></div>
+      )}
+
       <div className="flex items-center space-x-8">
         <Tooltip title="Copy" placement="top">
           <Image

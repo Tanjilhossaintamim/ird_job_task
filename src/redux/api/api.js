@@ -18,9 +18,19 @@ const api = createApi({
         method: "GET",
       }),
     }),
+    getDoa: builder.query({
+      query: (categoryId) => ({
+        url: `/doa?cat_id=${categoryId}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useGetCategoriesQuery, useGetSubCategoriesQuery } = api;
+export const {
+  useGetCategoriesQuery,
+  useGetSubCategoriesQuery,
+  useGetDoaQuery,
+} = api;
 
 export default api;
