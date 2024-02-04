@@ -1,5 +1,15 @@
 import DuaTitle from "./DuaTitle/DuaTitle";
 import Footer from "./footer/Footer";
+import localFont from "next/font/local";
+// local font
+const meQuran = localFont({
+  src: [
+    {
+      path: "./../../assets/font/me_quran Regular.ttf",
+      weight: " 400",
+    },
+  ],
+});
 
 const DuaCard = ({ doa }) => {
   const {
@@ -9,8 +19,7 @@ const DuaCard = ({ doa }) => {
     transliteration_en,
     translation_en,
     refference_en,
-    cat_id,
-    subcat_id,
+    audio,
     id,
   } = doa;
   return (
@@ -23,7 +32,11 @@ const DuaCard = ({ doa }) => {
 
       <div>
         <div className="py-2 text-justify">
-          <p className="text-right text-2xl leading-loose ">{dua_arabic}</p>
+          <p
+            className={`text-right text-2xl leading-loose ${meQuran.className}`}
+          >
+            {dua_arabic}
+          </p>
         </div>
         {/* translation */}
         <div className="py-4 text-justify">
@@ -56,7 +69,7 @@ const DuaCard = ({ doa }) => {
 
       {/* arabic text */}
       {/* footer */}
-      <Footer arabic={dua_arabic} />
+      <Footer arabic={dua_arabic} audio={audio} />
     </div>
   );
 };

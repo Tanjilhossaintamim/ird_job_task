@@ -15,8 +15,8 @@ const MobileRightSide = () => {
   };
   return (
     <div
-      className={`bg-white px-4 absolute top-0 bottom-0 z-50  h-screen ${
-        settingOpen ? "right-0 w-full" : "-right-10 w-0"
+      className={`bg-white  absolute top-0 bottom-0 z-50  h-screen ${
+        settingOpen ? "right-0 w-full px-4" : "-right-10 w-0 overflow-hidden"
       } transition-all duration-300`}
     >
       <div className="flex items-center justify-between">

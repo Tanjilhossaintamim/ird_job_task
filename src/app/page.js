@@ -1,8 +1,7 @@
 import CategorySide from "@/components/categoriesSide/CategorySide";
 import LeftSide from "@/components/leftside/LeftSide";
 import Navbar from "@/components/navbar/Navbar";
-import SectionTitle from "@/components/sectionTitle/SectionTitle";
-import DoaCardList from "@/components/doaCardList/DoaCardList";
+
 
 import SecondNav from "@/components/SecondNav/SecondNav";
 import RightSide from "@/components/rightSide/RightSide";
@@ -21,8 +20,7 @@ export default function Home() {
         <SecondNav />
         <div className="flex mt-3 lg:space-x-5 mr-4">
           <CategorySide />
-          <MiddleSection/>
-          
+          <MiddleSection />
         </div>
       </div>
       {/* right side */}

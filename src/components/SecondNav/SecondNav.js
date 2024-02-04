@@ -18,7 +18,7 @@ const SecondNav = () => {
     dispatch(setSettingMenuState());
   };
   return (
-    <div className="lg:h-14 py-4 px-7 bg-white w-[97.5%] rounded-xl leading-[25px] text-base text-[#4E4E4E] lg:hidden flex items-center justify-between">
+    <div className="lg:h-14 py-4 px-7 bg-white w-[97.5%] rounded-xl leading-[25px] text-base text-[#4E4E4E] lg:hidden flex items-center justify-between overflow-x-hidden">
       <div className="flex items-center">
         <span className="font-normal " onClick={openCategoryBar}>
           <IoMdMenu className="text-2xl mr-4" />
