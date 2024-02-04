@@ -8,8 +8,8 @@ npm install
 npm run dev
 ```
 ## Packages
--next js
--Tailwind css
--react icons
--Redux toolkit
+- next js
+- Tailwind css
+- react icons
+- Redux toolkit
 
